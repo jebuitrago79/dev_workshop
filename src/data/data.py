@@ -91,7 +91,13 @@ class Data:
         Returns:
             list: Lista rotada
         """
-        pass
+        n = len(lista)
+        k = k % n 
+        for _ in range(k):
+            ultimo = lista.pop() 
+            lista.insert(0, ultimo)  
+
+        return lista
     
     def encuentra_numero_faltante(self, lista):
         """
@@ -103,7 +109,10 @@ class Data:
         Returns:
             int: El número que falta en la secuencia
         """
-        pass
+        n = len(lista) + 1  
+        suma_esperada = n * (n + 1) // 2  
+        suma_real = sum(lista)  
+        return suma_esperada - suma_real  
     
     def es_subconjunto(self, conjunto1, conjunto2):
         """
