@@ -1,3 +1,4 @@
+import math
 class Magic:
     """
     Clase con métodos para juegos matemáticos, secuencias especiales y algoritmos numéricos.
@@ -74,7 +75,7 @@ class Magic:
         Returns:
             list: Lista de listas que representa el triángulo de Pascal
         """
-        pass
+        return [[comb(fila, col) for col in range(fila + 1)] for fila in range(n)]
     
     def factorial(self, n):
         """
