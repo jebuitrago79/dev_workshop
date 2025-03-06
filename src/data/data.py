@@ -15,7 +15,7 @@ class Data:
             list: Lista con los elementos en orden inverso
         """
         lista_invertida = []
-        for i in range(len(lista) - 1, -1, -1):  # Recorremos la lista de atrás hacia adelante
+        for i in range(len(lista) - 1, -1, -1):  
             lista_invertida.append(lista[i])
         return lista_invertida
     
@@ -47,7 +47,14 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        pass
+        lista_sin_duplicados = []
+        elementos_vistos = set()
+    
+        for elemento in lista:
+            if elemento not in elementos_vistos:
+                lista_sin_duplicados.append(elemento)
+                elementos_vistos.add(elemento)
+        return lista_sin_duplicados
     
     def merge_ordenado(self, lista1, lista2):
         """
@@ -60,7 +67,18 @@ class Data:
         Returns:
             list: Lista combinada y ordenada
         """
-        pass
+        resultado = []
+        i, j = 0, 0 
+        while i < len(lista1) and j < len(lista2):
+            if lista1[i] < lista2[j]:
+                resultado.append(lista1[i])
+                i += 1
+            else:
+                resultado.append(lista2[j])
+                j += 1
+        resultado.extend(lista1[i:])
+        resultado.extend(lista2[j:])
+        return resultado
     
     def rotar_lista(self, lista, k):
         """
