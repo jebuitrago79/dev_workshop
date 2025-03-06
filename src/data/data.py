@@ -125,7 +125,10 @@ class Data:
         Returns:
             bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
         """
-        pass
+        for elemento in conjunto1:  # Recorremos cada elemento del posible subconjunto
+         if elemento not in conjunto2:  # Si un elemento no está en el conjunto principal, no es subconjunto
+            return False
+         return True 
     
     def implementar_pila(self):
         """
@@ -134,7 +137,26 @@ class Data:
         Returns:
             dict: Diccionario con métodos push, pop, peek y is_empty
         """
-        pass
+        pila = []
+
+        def push(elemento):
+            pila.append(elemento)
+
+        def pop():
+            return pila.pop() if not is_empty() else None
+
+        def peek():
+            return pila[-1] if not is_empty() else None
+
+        def is_empty():
+            return len(pila) == 0
+
+        return {
+            "push": push,
+            "pop": pop,
+            "peek": peek,
+            "is_empty": is_empty
+        }
     
     def implementar_cola(self):
         """
