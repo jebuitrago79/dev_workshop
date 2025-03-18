@@ -123,7 +123,12 @@ class Strings:
         Returns:
             bool: True si la cadena representa un número entero, False en caso contrario
         """
-        pass
+        if not texto:
+            return False
+        if texto[0] in ('-', '+'):
+            texto = texto[1:]
+        return texto.isnumeric()
+
     
     def cifrar_cesar(self, texto, desplazamiento):
         """
@@ -136,7 +141,15 @@ class Strings:
         Returns:
             str: Cadena cifrada
         """
-        pass
+        resultado = ""
+        for caracter in texto:
+            if caracter.isalpha():
+                inicio = ord('A') if caracter.isupper() else ord('a')
+                resultado += chr(inicio + (ord(caracter) - inicio + desplazamiento) % 26)
+            else:
+                resultado += caracter
+        return resultado
+
     
     def descifrar_cesar(self, texto, desplazamiento):
         """
