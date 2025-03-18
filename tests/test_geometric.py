@@ -195,11 +195,11 @@ class TestGeometria:
     
     def test_area_poligono_regular(self):
         # Test con triángulo regular
-        assert round(self.geometria.area_poligono_regular(3, 10, 2.89), 2) == 43.35
+        assert round(self.geometria.area_poligono_regular(3, 10, 2.89)) == 43.35
         # Test con cuadrado
-        assert self.geometria.area_poligono_regular(4, 5, 2.5) == 50
+        assert round(self.geometria.area_poligono_regular(4, 5, 2.5)) == 50
         # Test con pentágono
-        assert round(self.geometria.area_poligono_regular(5, 6, 4.1), 2) == 61.5
+        assert round(self.geometria.area_poligono_regular(5, 6, 4.1, 2)) == 61.5
     
     def test_perimetro_poligono_regular(self):
         # Test con triángulo regular
