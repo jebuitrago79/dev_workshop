@@ -47,14 +47,15 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        lista_sin_duplicados = []
-        elementos_vistos = set()
-    
-        for elemento in lista:
-            if elemento not in elementos_vistos:
-                lista_sin_duplicados.append(elemento)
-                elementos_vistos.add(elemento)
-        return lista_sin_duplicados
+        resultado = []
+        seen = set()
+        for elem in lista:
+            key = (elem, type(elem))
+            if key not in seen:
+                seen.add(key)
+                resultado.append(elem)
+        return resultado
+
     
     def merge_ordenado(self, lista1, lista2):
         """
