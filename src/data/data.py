@@ -92,13 +92,10 @@ class Data:
         Returns:
             list: Lista rotada
         """
-        n = len(lista)
-        k = k % n 
-        for _ in range(k):
-            ultimo = lista.pop() 
-            lista.insert(0, ultimo)  
-
-        return lista
+        if not lista:
+            return []
+        k %= len(lista)
+        return lista[-k:] + lista[:-k]
     
     def encuentra_numero_faltante(self, lista):
         """
@@ -126,10 +123,10 @@ class Data:
         Returns:
             bool: True si conjunto1 es subconjunto de conjunto2, False en caso contrario
         """
-        for elemento in conjunto1:  # Recorremos cada elemento del posible subconjunto
-         if elemento not in conjunto2:  # Si un elemento no está en el conjunto principal, no es subconjunto
-            return False
-         return True 
+        for elem in conjunto1:
+            if elem not in conjunto2:
+                return False
+        return True
     
     def implementar_pila(self):
         """
